@@ -1,0 +1,90 @@
+#set($pageTitle="广告管理")
+#set($title="广告管理")
+
+#extends("/page/layout/default.vm")
+
+    #block("content")
+
+
+        <div class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="m-bread"><a href="">广告管理</a>&gt;修改广告</div>
+                </div>
+            </div>
+            <form action="" method="post" class="pl5 J-ad-form" novalidate="novalidate" style="border-top:1px solid #ddd;padding-top:20px;">
+                <div class="form-group">
+                    <div class="form-item">
+                        <label class="form-item-label control-label"><span class="required-span">*</span>广告名称：</label>
+                        <div class="form-item-info">
+                            <input type="text" maxlength="25" name="name" value="" placeholder="请输入广告名称" class="form-control required">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-item">
+                        <label class="form-item-label control-label"><span class="required-span">*</span>广告位置：</label>
+                        <div class="form-item-info">
+                            <input type="text" maxlength="25" value="" name="positionName" placeholder="选择广告位" class="form-control required J-btn-adP-select">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-item">
+                        <label class="form-item-label control-label"><span class="required-span">*</span>选择素材：</label>
+                        <div class="form-item-info">
+                            <input type="text" maxlength="25" value="" name="materialName" placeholder="请选择素材" class="form-control required J-btn-matter-select">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-item">
+                        <label class="form-item-label control-label"><span class="required-span">*</span>广告顺序：</label>
+                        <div class="form-item-info">
+                            <input type="text" maxlength="25" value="" name="sequence" onkeyup='this.value=this.value.replace(/[^1-9]\D*$/,"")' placeholder="请输入广告顺序" class="form-control required">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-item">
+                        <label class="form-item-label control-label"><span class="required-span">*</span>投放范围：</label>
+                        <div class="form-item-info">
+                            <input type="text" maxlength="25" value="" name="tenants" placeholder="选择租户" class="form-control required J-btn-rent-select">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-item">
+                        <label class="form-item-label control-label"><span class="required-span">*</span>投放状态：</label>
+                        <div class="form-item-info">
+                            <div class="radio f-ib mr20">
+                                <label>
+                                    <input type="radio" checked name="status" value="1"> 启用
+                                </label>
+                            </div>
+
+                            <div class="radio f-ib ml20">
+                                <label>
+                                    <input type="radio" name="status" value="2"> 不启用
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="btn-operate form-group" id="add-btn" style="display: block;">
+                    <button class="btn btn-cancel" type="button">取消</button>
+##                    <div class="btn-division"></div>
+                    <button class="btn btn-success ml20" type="submit"> 确认</button>
+                </div>
+
+            </form>
+        </div>
+    #end
+
+
+    #script()
+        require(['./ad']);
+    #end
+#end

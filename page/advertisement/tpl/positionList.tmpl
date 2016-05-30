@@ -1,0 +1,15 @@
+<table class="table table-list table-list-nobg" style="margin-top:-55px;float:left;">
+    <thead>
+        <tr> <th>选择</th> <th>广告位ID</th> <th>广告位名称</th>  </tr>
+    </thead>
+    <tbody>
+        <% if (list.length>0) { %>
+            <% _.forEach(list, function(item) { %>
+                <tr><td><input type="radio" name="adPosItem"></td><td><%- item.id %></td><td class="ad-pos-name"><%- item.name %></td></tr>
+            <% }); %>
+        <% } else{ %>
+           <tr><td colspan="3" style="padding:70px 0;">无广告位,点击新建广告</td></tr>
+        <% } %>
+    </tbody>
+</table>
+<div class="f-cb"></div>

@@ -1,0 +1,39 @@
+{
+    "title": "餐道会员管理平台",
+    "titleAffix": "餐道会员管理平台",
+    "pageTitle": "餐道会员管理平台",
+
+    "menus": [
+        {
+            "label": "会员信息",
+            "href": "/member/info"
+        },
+        {
+            "label": "交易信息",
+            "href": "/member/trade"
+        },
+
+        {
+            "label": "优惠管理",
+            "href": "/member/preferential"
+        },
+        {
+            "label": "广告管理",
+            "href": "/advertisement/ad",
+            "children": [
+                {
+                    "label": "广告管理",
+                    "href": "/advertisement/ad"
+                },
+                {
+                    "label": "素材管理",
+                    "href": "/advertisement/matter"
+                },
+                {
+                    "label": "广告位管理",
+                    "href": "/advertisement/adPosition"
+                }
+            ]
+        }
+    ]
+}

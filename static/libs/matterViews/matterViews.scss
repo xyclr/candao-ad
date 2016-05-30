@@ -1,0 +1,55 @@
+.matter-view-box {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2001; /* Firefox */
+  display: -moz-box;
+  -moz-box-pack: center;
+  -moz-box-align: center; /* Safari、Opera 以及 Chrome */
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-align: center; /* W3C */
+  display: box;
+  box-pack: center;
+  box-align: center;
+}
+
+.matter-view-mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background-color: #000;
+  filter: alpha(opacity=50);
+  opacity: .5;
+}
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+  height:500px;width:auto;
+}
+.carousel-control {
+  width:55px;
+  height: 125px;
+  top:185px;
+
+  &:hover {
+    background-color: rgba(0,0,0,0.2);
+  }
+}
+.carousel-control.left {
+  left:-70px;
+  background-image: url("./icon-arr-prev.png");
+  background-repeat: no-repeat;
+  background-position:  15px 45px;
+}
+.carousel-control.right {
+  right:-70px;
+  background-image: url("./icon-arr-next.png");
+  background-repeat: no-repeat;
+  background-position:  15px 45px;
+}
+
+

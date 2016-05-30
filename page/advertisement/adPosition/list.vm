@@ -1,0 +1,48 @@
+#set($pageTitle="广告位管理")
+#set($title="广告位管理")
+
+##searchbox属性设置
+#set($searchBoxUrl = 'http://www.baidu.com')
+#set($searchBoxPlaceholder = '广告位ID/广告位名称')
+
+#set($searchBoxHasKey = false)
+#set($searchBoxMainKey = { 'name':'广告ID' })
+#set($searchBoxKeyItems = [{ 'name':'广告名称' }, { 'name':'广告位名称' }, { 'name':'素材名称' }])
+
+
+#extends("/page/layout/default.vm")
+
+    #block("content")
+        <div class="content">
+            <div class="row f-oh">
+                <div class="col-md-12">
+                    <a class="btn btn-primary J-btn-add-adPos">新建广告位</a>
+                    #widget("/widget/searchbox/searchbox.vm")
+                </div>
+            </div>
+            <div class="row mt10">
+                <div class="col-md-12">
+                    <table class="table table-list table-adPos" id="adPosList">
+                        <thead>
+                        <tr>
+                            <th class="t-ad-id">广告位ID</th>
+                            <th class="t-adP-name">广告位名称</th>
+                            <th class="t-op">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+
+                    <div class="pagination-box">
+                        <div id="pagination" class="pagination"><!-- 这里显示分页 --></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    #end
+
+    #script()
+        require(['./adPosition']);
+    #end
+#end

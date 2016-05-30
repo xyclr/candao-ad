@@ -1,0 +1,28 @@
+<table class="table table-list">
+    <thead>
+    <tr>
+        <th class="t-ad-id">广告ID</th>
+        <th class="t-ad-name">广告名称</th>
+        <th class="t-adP-name">广告位名称</th>
+        <th class="t-matter-name">素材名称</th>
+        <th class="t-matter-url">素材URL</th>
+        <th class="t-url">跳转URL</th>
+        <th class="t-order">广告顺序</th>
+        <th class="t-rent">租户</th>
+        <th class="t-status">启用状态</th>
+        <th class="t-op">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+        <% if(list.length > 1){ %>
+            <% _.forEach(list, function(item) { %>
+                <tr><td><%- item.id %></td><td><%- item.name %></td><td><%- item.positionName %></td><td><%- item.materialName %></td><td><%- item.materialUrl %></td><td><%- item.goUrl %></td><td><%- item.sequence %></td><td><%- item.tenants.tenantName %></td></td>
+                    <td class="ad-pos-name"><div class="switch"><input type="checkbox" <% if (item.status) { %> checked <% } %> value=""><label><i data-on="启用" data-off="停用"></i></label></div></td>
+                    <td class="td-last"><div class="operate">	<a href="./ad/detail?id=111"  class="J-btn-ad-modify">修改</a>	<a href="javascript:void(0)" class="J-btn-ad-del">删除</a></div></td>
+                </tr>
+            <% }); %>
+        <% } else { %>
+            <tr><td colspan="10" style="padding:70px 0;">无广告,点击新建广告</td></tr>
+        <% } %>
+    </tbody>
+</table>

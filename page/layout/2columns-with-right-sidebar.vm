@@ -1,0 +1,27 @@
+## 两栏布局有右边栏
+#extends("./frame.vm")
+
+    #block("body")
+        #block("header")
+            #widget("/widget/header/header.vm")
+        #end
+
+        <div id="middle" class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    #if ($pageTitle)
+                        <div class="page-header">
+                          <h1>$pageTitle#if ($subTitle) <small>$subTitle</small>#end</h1>
+                        </div>
+                    #end
+                    <div id="content">#block("content")#end</div>
+                </div>
+                <div class="col-md-3">#block("sidebar")#end</div>
+            </div>
+        </div>
+
+        #block("footer")
+            #widget("/widget/footer/footer.vm")
+        #end
+    #end
+#end

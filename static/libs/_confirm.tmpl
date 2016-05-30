@@ -1,0 +1,22 @@
+<div class="modal fade" tabindex="-1" role="dialog" >
+    <div class="modal-table">
+        <div class="modal-table-cell">
+            <div class="modal-dialog modal-danger" style="width:<%= width %>">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title"><%= title %></h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="modal-loading" style="display:none;"><i class="fa fa-spinner fa-spin"></i></p>
+                        <div><%= content %></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-gray  btn-default" data-dismiss="modal"><%= cancelTxt %></button>
+                        <button type="button" class="btn btn-success btn-confirm"><%= confirmTxt %></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

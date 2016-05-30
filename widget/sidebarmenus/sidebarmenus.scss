@@ -1,0 +1,74 @@
+.ky-navbar{
+    width: 100px;
+    float: left;
+    height: auto;
+    margin-right: -100%;
+    position: relative;
+    z-index: 999;
+
+    &.ky-navbar-default{
+        background-color: #f4f4f4;
+        height: 100%;
+    }
+
+    .ky-navbar-header{
+        height: 44px;
+        text-align: center;
+        font-size: smaller;
+        color: #fff;
+        background-color: #202d37;
+    }
+    .ky-navbar-header img{
+        height:25px;
+    }
+
+    .ky-nav{
+        padding-left: 0;
+        list-style: none;
+        font-size: 14px;
+    }
+    .ky-nav-pills > li {
+        position: relative;
+    }
+    .ky-nav-pills > li > a{
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;
+        display: block;
+        color: #282828;
+    }
+
+    .ky-nav-pills > li > a:hover{
+        text-decoration: none;
+    }
+    .ky-nav-pills > li > a.active {
+        background: #28527c;
+        color:#fff;
+    }
+    .ky-nav-pills > li >ul {
+        display:none;
+        position: absolute;
+        left:100px;
+        top:0;
+        width:100px;
+        background: #28527c;
+
+    }
+    .ky-nav-pills > li:hover>a {
+        background: #22394f!important;
+        color:#fff;
+    }
+    .ky-nav-pills > li:hover >ul{
+        display:block;
+        color:#fff;
+    }
+    .ky-nav-pills > li >ul li a{
+        color:#fff;
+        border-left:0;
+    }
+    .ky-nav-pills > li >ul li a:hover {
+        background: #22394f!important;
+        color:#fff;
+    }
+}
+

@@ -1,0 +1,17 @@
+#set($pageTitle="优惠管理")
+#set($title="优惠管理")
+
+#extends("/page/layout/default.vm")
+
+#block("header")
+#widget("/widget/header/header.vm")
+#end
+
+#block("sidebar")
+#widget("/widget/sidebarmenus/sidebarmenus.vm" "var:menus=$menus")
+#end
+
+#block("content")
+优惠管理
+#end
+#end

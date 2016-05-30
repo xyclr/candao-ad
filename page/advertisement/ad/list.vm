@@ -1,0 +1,37 @@
+#set($pageTitle="广告管理")
+#set($title="广告管理")
+
+##searchbox属性设置
+#set($searchBoxId = 'J-search-ad')
+#set($searchBoxPlaceholder = '')
+
+#set($searchBoxHasKey = true)
+#set($searchBoxMainKey = { 'name':'广告ID' })
+#set($searchBoxKeyItems = [{ 'name':'广告名称' }, { 'name':'广告位名称' }, { 'name':'素材名称' }])
+
+
+#extends("/page/layout/default.vm")
+
+    #block("content")
+        <div class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="m-bread"><a href="">广告管理</a></div>
+                </div>
+                <div class="col-md-12">
+                    <a href="./ad/detail" class="btn btn-primary">新建广告</a>
+                    #widget("/widget/searchbox/searchbox.vm")
+                </div>
+            </div>
+            <div class="row mt10">
+                <div class="col-md-12 J-ad-list">
+
+                </div>
+            </div>
+        </div>
+    #end
+
+    #script()
+        require(['./ad']);
+    #end
+#end

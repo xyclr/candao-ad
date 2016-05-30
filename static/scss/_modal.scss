@@ -1,0 +1,97 @@
+@import "compass/css3";
+
+.modal {
+
+    .modal-title {
+        font-size:14px;
+    }
+    .modal-notice {
+        background-color: #000;
+        opacity: 0.6;
+        line-height: 40px;
+        font-size:28px;
+        text-align: center;
+        color:#fff;
+    }
+
+    .notice-icon {
+        width:40px;
+        height: 40px;
+        display: inline-block;
+    }
+    .notice-success {
+        background-image:url("../i/success.png?__inline");
+    }
+    .notice-fail {
+        background-image:url("../i/fail.png?__inline");
+    }
+
+    .modal-header {
+        margin: 25px 15px 15px 15px;
+        border-bottom: 1px solid #e5e5e5;
+        padding:0 0 10px 0;
+    }
+
+    .modal-footer {
+        border:none;
+        text-align: center;
+    }
+
+    .modal-footer .btn + .btn {
+        margin-bottom: 0;
+        margin-left: 20px;
+    }
+
+    .modal-loading {
+        text-align: center;
+        min-height: 200px;
+        line-height: 200px;
+        font-size: 30px;
+    }
+
+    .modal-table {
+        display: table;
+        width: 100%;
+        height: 100%;
+
+        .modal-table-cell {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+
+    //.modal-info {
+    //    color: #31708f;
+    //
+    //    .modal-header {
+    //        background: #d9edf7;
+    //        @include border-radius(6px 6px 0 0);
+    //    }
+    //}
+    //
+    //.modal-sucess {
+    //    color: #3c763d;
+    //
+    //    .modal-header {
+    //        background: #d6e9c6;
+    //        @include border-radius(6px 6px 0 0);
+    //    }
+    //}
+    //.modal-danger {
+    //    color: #a94442;
+    //
+    //    .modal-header {
+    //        background: #f2dede;
+    //        @include border-radius(6px 6px 0 0);
+    //    }
+    //
+    //}
+    //.modal-warning {
+    //    color: #8a6d3b;
+    //
+    //    .modal-header {
+    //        background: #fcf8e3;
+    //        @include border-radius(6px 6px 0 0);
+    //    }
+    //}
+}

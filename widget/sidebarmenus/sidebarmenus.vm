@@ -1,0 +1,33 @@
+<div class="ky-navbar ky-navbar-default">
+    <div class="ky-navbar-header">
+        <img src="./logo.png?__inline" alt="">
+        <p>餐道会员管理平台</p>
+    </div>
+    <div class="ky-navbar-menu">
+        #if ($menus)
+
+        ## velocity 宏示例
+            #macro( renderMenus $menus)
+                <ul class="ky-nav ky-nav-pills">
+
+                    #foreach( $menu in $menus )
+                        <li #if( $menu.active )class="active"#end>
+                            <a href="$!{request.contextPath}$!{menu.href}" class="ky-menu-primary">$!{menu.label}</a>
+
+                            #if( $menu.children )
+                                #renderMenus($menu.children)
+                            #end
+                        </li>
+                    #end
+
+                </ul>
+            #end
+
+            <div class="jello-toc">#renderMenus($menus)</div>
+            #require("./sidebarmenus.scss")
+            #script()
+            require(['./sidebarmenus']);
+        #end
+    #end
+    </div>
+</div>

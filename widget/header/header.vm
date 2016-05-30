@@ -1,0 +1,11 @@
+<div class="ky-title">
+    #if ($pageTitle)
+        <p id="title_p">$pageTitle#if ($subTitle) <small>$subTitle</small>#end</p>
+        <div class="ky-title-right f-tar">
+            <img src="./user.png?__inline" alt="">
+            <span class="ky-user">100011</span>
+            <img src="./logout.png?__inline"  class="J-btn-exit" >
+        </div>
+    #end
+</div>
+#require("./header.scss")

@@ -1,0 +1,19 @@
+## 两栏布局有左边栏
+#extends("./frame.vm")
+
+    #block("body")
+        #block("sidebar")
+            #widget("/widget/sidebarmenus/sidebarmenus.vm" "var:menus=$menus")
+        #end
+
+        <div class="ky-container-iframe">
+            <div class="container-inner">
+                #block("header")
+                    #widget("/widget/header/header.vm")
+                #end
+
+                #block("content")#end
+            </div>
+        </div>
+    #end
+#end

@@ -1,0 +1,55 @@
+
+
+.ky-title{
+    height: 44px;
+    text-align: center;
+    padding-top: 8px;
+    background-color: #34495e;
+    padding-right: 20px;
+    color: #ffffff;
+    min-width: 920px;
+}
+.ky-title p{
+    font-size: 20px;
+}
+
+.ky-title .navbar-form{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.ky-title .input-group-addon{
+    background: #fff;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.ky-title input[type=text]{
+    border-radius: 15px;
+    border-left:none;
+}
+
+.ky-title-right{
+    float: right;
+    margin-top: -42px;
+    width: 420px;
+}
+
+.ky-title-right > img{
+    cursor: pointer;
+}
+
+.ky-title-right .form-group{
+    position: relative;
+    display: table;
+}
+
+.ky-title-right .navbar-form{
+    width: auto;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-right: 0;
+    margin-left: 0;
+    border: none;
+    display: inline-flex;
+}

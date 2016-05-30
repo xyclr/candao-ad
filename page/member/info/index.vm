@@ -1,0 +1,26 @@
+#set($pageTitle="会员信息")
+#set($title="会员信息")
+
+#extends("/page/layout/default.vm")
+
+    #block("header")
+    #widget("/widget/header/header.vm")
+    #end
+
+    #block("sidebar")
+    #widget("/widget/sidebarmenus/sidebarmenus.vm" "var:menus=$menus")
+    #end
+
+    #block("content")
+        <a href="javascript:void(0)" class="btn btn-default J-btn-confirm">confirm</a>
+        <a href="javascript:void(0)" class="btn btn-default J-btn-alert">alert</a>
+        <a href="javascript:void(0)" class="btn btn-default J-btn-model">model</a>
+        <hr>
+        <input type="text" id="birthday" name="birthday" value="" class="form-control" readonly >
+
+    #end
+
+    #script()
+        require(['./index']);
+    #end
+#end

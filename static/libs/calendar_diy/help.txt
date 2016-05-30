@@ -1,0 +1,13 @@
+框架结构页面用上My97DatePicker.htm的日历就经常出现无法打开站点
+
+关键字: 日期控件 
+
+   大部分日期控件都具备功能如:带时间显示,支持周显示,自定义格式,自动纠错,智能纠错,起始日期,操作按钮自定义,快速选择日期,支持多种调用模式等,My97DatePicker在这些方面做得更全面,更人性化,并且速度一流. 
+上面是My97官方网站的说明，这款日期控件也是我使用以来最好的一个，非常人性化，很全面，下面是在使用过程中我碰到的最棘手的一个问题,在frame框架中调用这个控件时老是探出“无法打开站点，已终止操作？”消息框，很长一段时间我都素手无策，最后才找到下面的方法，官网也有，综合下： 
+1、IE6中使用时,如果有 base target标签 必须在日期控件载入后设置 
+即<script language="javascript" type="text/javascript" src="../My97DatePicker/WdatePicker.js"></script> 
+<base target="_self" /> 
+2、在<script>标签中加上defer="defer" 
+3、将<script>放在页面<body>后面 
+4、将<script>放在页面</html>后面 
+5、这是一个绝对有效的方法,但是会丢失跨越iframe的特性,把WdatePicker.js里面的$crossFrame改成false 
