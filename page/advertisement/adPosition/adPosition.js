@@ -1,13 +1,16 @@
 require('bootstrap');
 var $ = require('jquery');
 var confirm = require('libs/confirm');
+var _ = require('lodash');
 var alert = require('libs/alert');
 var modal = require('libs/modal');
 var conf = require('libs/conf');
 var utils = require('libs/utils');
 var twbsPagination = require('libs/twbsPagination');
 
-var $adPosList = $('#adPosList');
+var $adPosList = $('.J-ad-pos-list');
+
+var tplPositionList = __inline('../tpl/positionList.tmpl');
 
 var AdPosObj = {
     init : function(){
@@ -56,6 +59,10 @@ var AdPosObj = {
             })
         });
 
+        $('.J-search-position').click(function(){
+            that.initAdPosList();
+        });
+
         //删除广告位
         $adPosList.on('click','.J-btn-adPos-del',function(){
             confirm('确认删除"' + 'xxx' + '"吗?',{
@@ -81,49 +88,13 @@ var AdPosObj = {
 
     //初始化广告位列表
     initAdPosList: function(){
-        var that = this;
-        var $pagination = $("#pagination");
 
-        utils.getData(conf.interFaceUrl.adPosList,{},function(result){
-            var ret = [];
-            //有数据返回
-            if(result.data.list.length > 0 ) {
-                result.data.list.forEach(function(i,v){
-                    ret.push('<tr><td>' + i.id + '</td><td class="ad-pos-name">' + i.name + '</td><td class="td-last"><div class="operate">	<a  class="J-btn-adPos-modify" data-op="modify">修改</a>	<a href="javascript:void(0)" class="J-btn-adPos-del">删除</a></div></td></tr>');
-                });
-                //加入分页
-                if(parseInt(result.data.pageCount) > 1) {
-                    $pagination.twbsPagination({
-                        totalPages:parseInt(result.data.pageCount),
-                        visiblePages: 7,
-                        startPage : 1,
-                        first: '...',
-                        prev : '<',
-                        next : '>',
-                        last: '...',
-                        onPageClick: function (event, page){
-                            var ret = [];
-                            utils.getData(conf.interFaceUrl.adPosList,{},function(result){
-                                //有数据返回
-                                if(result !== null && result.data.list.length > 0 ) {
-                                    result.data.list.forEach(function(i,v){
-                                        ret.push('<tr><td>' + i.id + '</td><td class="ad-pos-name">' + i.name + '</td><td class="td-last"><div class="operate">	<a  class="J-btn-adPos-modify">修改</a>	<a href="javascript:void(0)" class="J-btn-adPos-del">删除</a></div></td></tr>');
-                                    });
-                                    $adPosList.find('tbody').html(ret.join(''));
-                                } else {
-                                    $adPosList.find('tbody').html('暂无数据');
-                                }
-
-                            });
-                        }
-                    });
-                }
-
-                $adPosList.find('tbody').html(ret.join(''));
-            } else {
-                $adPosList.find('tbody').html('暂无数据');
-            }
-        });
+        utils.initList(
+            conf.interFaceUrl.adPosList,
+            {current:1},
+            $('.J-ad-pos-list'),
+            tplPositionList
+        );
     }
 };
 

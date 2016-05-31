@@ -1,3 +1,5 @@
+@import "compass/css3";
+
 body {
 }
 
@@ -492,6 +494,18 @@ html, body {
     .operate {
         display: none;
     }
+    .img-thumb {
+        @include  inline-block()
+        width: 30px;
+        height: 30px;
+        overflow: hidden;
+        text-align: center;
+        img {
+            height: 30px;
+            margin-left: -5px;
+            vertical-align: middle;
+        }
+    }
 }
 .table-list tbody tr:hover {
     background: #f4f4f4;
@@ -512,6 +526,7 @@ html, body {
     border-bottom:none;
     text-align: center;
     line-height: 25px;
+    vertical-align: middle;
 
     img {
         vertical-align: middle;
@@ -731,7 +746,7 @@ html, body {
 .form-group {
     width: 100%;
     clear:both;
-    margin-bottom: 30px;
+    margin-bottom: 22px;
     float:left;
     .form-item {
     }
@@ -809,6 +824,20 @@ html, body {
     a {
       color:#000;
     }
+}
+
+.popover {
+    border-radius: 0!important;
+    border-color:#e6e6e6!important;
+    box-shadow: none;
+}
+.popover.bottom > .arrow {
+    border-bottom-color:#e6e6e6!important;
+    top: -6px;
+    margin-left:-6px;
+}
+.popover > .arrow {
+    border-width: 6px;
 }
 @import "callout";
 @import "highlight";

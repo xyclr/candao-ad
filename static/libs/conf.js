@@ -1,4 +1,5 @@
 var Mock = require('/node_modules/mockjs/dist/mock-min.js');
+var $ = require('jquery');
 Mock.mock(/(adListItemDel)/, {
     "code": "0",
     "data": [
@@ -11,10 +12,10 @@ Mock.mock(/(adListItemDel)/, {
 
 Mock.mock(/(adPosList)/, {
     "code": "0",
-    "data":{
-        "total":'1',
-        "pageCount":'4',
-        "curPage":'1',
+    "data": {
+        "total": '1',
+        "pageCount": '4',
+        "curPage": '1',
         "list|10": [
             {
                 "id|+1": 1,
@@ -26,10 +27,12 @@ Mock.mock(/(adPosList)/, {
 });
 Mock.mock(/(adList)/, {
     "code": "0",
-    "data":{
-        "total":'10',
+    "data": {
+        "total": '10',
         "pageCount":'5',
-        "curPage":'1',
+        "curPage": function(){
+            return 10;
+        },
         "list|10": [
             {
                 "id|+1": 1,
@@ -104,6 +107,7 @@ Mock.mock(/(getAdById.json)/, {
     ],
     "msg": "成功or失败",
 });
+
 
 module.exports = {
     interFaceUrl : {

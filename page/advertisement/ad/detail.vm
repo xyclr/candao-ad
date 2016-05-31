@@ -74,7 +74,7 @@
 
 
                 <div class="btn-operate form-group" id="add-btn" style="display: block;">
-                    <button class="btn btn-cancel" type="button">取消</button>
+                    <button class="btn btn-default btn-cancel" type="button">取消</button>
 ##                    <div class="btn-division"></div>
                     <button class="btn btn-success ml20" type="submit"> 确认</button>
                 </div>

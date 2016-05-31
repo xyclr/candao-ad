@@ -21,8 +21,8 @@ var $btnAdPSelect = $('.J-btn-adP-select'),
 
 
 var tplAdList = __inline('../tpl/adList.tmpl');
-var tplPositionList = __inline('../tpl/positionList.tmpl');
-var tplMatterList = __inline('../tpl/matterList.tmpl');
+var tplPositionList = __inline('../tpl/positionListModal.tmpl');
+var tplMatterList = __inline('../tpl/matterListModal.tmpl');
 
 var AdObj = {
     init : function(){
@@ -30,7 +30,7 @@ var AdObj = {
 
         //如果为广告列表页
         if($adList.length > 0) {
-            that.initList(
+            utils.initList(
                 conf.interFaceUrl.adList,
                 {current:1},
                 $adList,
@@ -72,33 +72,33 @@ var AdObj = {
                         });
                     return false;
                 },
-                rules:{
-                    name:{
-                        required:true,
-                        maxlength:30
+                rules: {
+                    name: {
+                        required: true,
+                        maxlength: 30
                     },
-                    positionName:{
-                        required:true,
+                    positionName: {
+                        required: true,
                     },
-                    materialName:{
-                        required:true
+                    materialName: {
+                        required: true
                     },
-                    sequence:{
-                        required:true
+                    sequence: {
+                        required: true
                     },
-                    tenants:{
-                        required:true
+                    tenants: {
+                        required: true
                     }
                 },
-                messages:{
-                    name:{
-                        required:jQuery.validator.format("请输入广告名称"),
-                        maxlength:jQuery.validator.format("不能超过30个字符")
+                messages: {
+                    name: {
+                        required: jQuery.validator.format("请输入广告名称"),
+                        maxlength: jQuery.validator.format("不能超过30个字符")
                     },
-                    positionName:{
-                        required:jQuery.validator.format("请选择广告位置")
+                    positionName: {
+                        required: jQuery.validator.format("请选择广告位置")
                     },
-                    sequence:{
+                    sequence: {
                         required: jQuery.validator.format("请输入广告顺序")
                     },
                     tenants:{
@@ -118,7 +118,7 @@ var AdObj = {
         //广告搜索
         $('.J-search-ad').find('.search-submit').click(function(){
 
-            that.initList(
+            utils.initList(
                 conf.interFaceUrl.adList,
                 {
                     search:'xx',
@@ -149,7 +149,7 @@ var AdObj = {
                                 notice({
                                     content: '删除成功',
                                     errorLevel: 'success',
-                                    cb:that.initList(
+                                    cb:utils.initList(
                                         conf.interFaceUrl.adList,
                                         {current:1},
                                         $adList,
@@ -174,7 +174,7 @@ var AdObj = {
             var tplConfirm = _.template('' +
                 '<div style="position: relative; top: -66px;left:0;width:100%; padding-left: 85px;">' +
                 '<a href="../adPosition?op=add" class="btn btn-primary f-fl mr20">新建广告位</a>'+
-                '<div class="search-box-mini f-fr J-search-box-position mr15" data-url="http://www.baidu.com"><span class="fa fa-search"></span> <input type="text" class="search-ipt" placeholder="广告位ID/广告位名称"> <a href="javascript:void(0)" class="search-submit"> 查询 </a> </div>' +
+                '<div class="search-box-mini f-fr J-search-box-position mr15" ><span class="fa fa-search"></span> <input type="text" class="search-ipt" onkeyup="this.value=this.value.replace(/[^1-9]\D*$/,\'\')" placeholder="广告位ID/广告位名称"> <a href="javascript:void(0)" class="search-submit"> 查询 </a> </div>' +
                 '</div><div class="J-ad-pos-list"></div>'+
                 '');
 
@@ -188,11 +188,15 @@ var AdObj = {
                         "margin": "25px 15px 15px 15px"
                     });
 
-                    that.initList(
+                    utils.initList(
                         conf.interFaceUrl.adPosList,
                         {current:1},
                         $('.J-ad-pos-list'),
-                        tplPositionList
+                        tplPositionList,
+                        function(){
+                            $('.modal-body').find('.table-list').addClass('table-list-nobg').css({"margin-top":"-55px","float":"left"});
+                        },
+                        {has_btn_box:true}
                     );
                 }
             });
@@ -200,11 +204,15 @@ var AdObj = {
 
         //广告位搜索
         $('body').on('click','.J-search-box-position .search-submit',function(){
-            that.initList(
+            utils.initList(
                 conf.interFaceUrl.adPosList,
                 {current:1},
                 $('.J-ad-pos-list'),
-                tplPositionList
+                tplPositionList,
+                function(){
+                    $('.modal-body').find('.table-list').addClass('table-list-nobg').css({"margin-top":"-55px","float":"left"});
+                },
+                {has_btn_box:true}
             );
         });
 
@@ -213,8 +221,8 @@ var AdObj = {
             var me = $(this);
             var tplConfirm = _.template('' +
                 '<div style="position: relative; top: -66px;left:0;width:100%; padding-left: 85px;">' +
-                '<a href="../adPosition?op=add" class="btn btn-primary f-fl mr20">新建素材</a>'+
-                '<div class="search-box-mini f-fr J-search-box-matter mr15" data-url="http://www.baidu.com"><span class="fa fa-search"></span> <input type="text" class="search-ipt" placeholder="素材ID/素材名称"> <a href="javascript:void(0)" class="search-submit"> 查询 </a> </div>' +
+                '<a href="../matter/detail" class="btn btn-primary f-fl mr20">新建素材</a>'+
+                '<div class="search-box-mini f-fr J-search-box-matter mr15"><span class="fa fa-search"></span> <input type="text" class="search-ipt" onkeyup="this.value=this.value.replace(/[^1-9]\D*$/,\'\')"  placeholder="素材ID/素材名称"> <a href="javascript:void(0)" class="search-submit"> 查询 </a> </div>' +
                 '</div><div class="J-ad-mater-list"></div>'+
                 '');
 
@@ -228,18 +236,24 @@ var AdObj = {
                         "margin": "25px 15px 15px 15px"
                     });
 
-                    that.initList(conf.interFaceUrl.material, {current:1}, $('.J-ad-mater-list'), tplMatterList);
+                    utils.initList(conf.interFaceUrl.material, {current:1}, $('.J-ad-mater-list'), tplMatterList,function(){
+                        $('.modal-body').find('.table-list').addClass('table-list-nobg').css({"margin-top":"-55px","float":"left"});
+                    },{has_btn_box:true});
                 }
             });
         });
 
         //素材搜索
         $('body').on('click','.J-search-box-matter .search-submit',function(){
-            that.initList(
+            utils.initList(
                 conf.interFaceUrl.material,
                 {current:1},
                 $('.J-ad-mater-list'),
-                tplMatterList
+                tplMatterList,
+                function(){
+                    $('.modal-body').find('.table-list').addClass('table-list-nobg').css({"margin-top":"-55px","float":"left"});
+                },
+                {has_btn_box:true}
             );
         });
 
@@ -247,7 +261,7 @@ var AdObj = {
         $('body').on('click','.J-btn-matter-view',function(){
             matterViews({
                 content: [
-                    { name: 'jerry',horizontalImg:'http://pic30.nipic.com/20130605/12728654_083846920000_2.jpg' },
+                    { name: 'jerry',horizontalImg:'http://pic30.nipic.com/20130605/12728654_083846920000_2.jpg'},
                     { name: 'john',horizontalImg:'http://pic32.nipic.com/20130829/12906030_124355855000_2.png'}
                 ],
                 type:'2' //1图片;2视频; 3链接(不处理)
@@ -275,66 +289,11 @@ var AdObj = {
                     confirm(ret.join(''),{
                         title: '选择租户',
                         confirmed: function(){
-                            me.val($(".J-ad-rent-list").find('input[type=radio]:checked').parent().text())
+                            me.val($(".J-ad-rent-list").find('input[type=radio]:checked').parent().text());
                         }
                     });
                 }
             });
-        });
-    },
-
-    /**
-     * @description 生成分页
-     * @param {Object} opt 分页参数
-     * @param {Function} cb 回调函数
-     * @return {Object} $dom 返回分页dom
-     */
-    genPager: function(opt,cb){
-        var $dom = $('<div class="pagination-box"><div class="pagination"><!-- 这里显示分页 --></div></div>');
-        var defaultOptions = {
-            totalPages:1,
-            visiblePages: 10,
-            startPage :1,
-            first: '...',
-            prev : '<',
-            next : '>',
-            last: '...',
-            onPageClick: cb || _.noop()
-        };
-
-        opt = $.extend({}, defaultOptions, opt);
-
-        $dom.find('.pagination').twbsPagination(opt);
-
-        return $dom;
-    },
-
-    /**
-     * @description 通过接口获取数据并渲染模板
-     * @param {String} url 接口地址
-     * @param {Object} params 请求参数
-     * @param {Object} target 需要填充的容器
-     * @return {Function} tpl 基于lodash的模板文件
-     */
-    initList: function(url,params,target,tpl){
-        var that = this;
-        var $taregt = target;
-
-        $taregt.empty();
-
-        utils.getData(url,params,function(result){
-            //有数据返回
-            if(parseInt(result.data.pageCount) > 1) {
-                $taregt.append(
-                    that.genPager({
-                        totalPages:parseInt(result.data.pageCount),
-                        startPage:parseInt(params.current),
-                    },function (event, page){
-                        that.initList(url, {current:page}, $taregt, tpl);
-                    })
-                );
-            }
-            $taregt.prepend(tpl({list:result.data.list}));
         });
     }
 };

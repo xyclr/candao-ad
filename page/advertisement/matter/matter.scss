@@ -1,0 +1,94 @@
+@import "compass/css3";
+
+.form-group-media {
+
+
+    .ico-qs {
+        visibility: hidden;
+        width: 18px;
+        height: 18px;
+        margin-left:7px;
+        @include  inline-block();
+        background: url("qs.png?__inline");
+    }
+
+}
+.item-img-box {
+    margin-top:10px;
+}
+.media-box {
+    width: 130px;
+    position: relative;
+    float:left;
+    margin-right: 20px;
+    font-size:12px;
+    img {
+        width: 130px;
+        height: 130px;
+        border:1px solid #e6e6e6;
+    }
+    .media-file {
+        border:none;
+        position: absolute;
+        height: 20px;
+        width: 60px;
+        left: 35px;
+        @include opacity(0);
+    }
+    .media-name {
+        width: 100%;
+        height: 26px;
+        line-height: 26px;
+        padding:0 10px;
+        color:#fff;
+        position: absolute;
+        left:0;
+        top:104px;
+        background-color:rgba(0,0,0,0.5);
+    }
+    .media-op {
+        a {
+            float:left;
+            margin:3px 0;
+            color:#34495e;
+            &.media-op-md {
+                margin: 3px 17px;
+            }
+        }
+    }
+
+    @at-root .media-box-upload {
+        width: 132px;
+        height: 132px;
+        padding-top:50px;
+        border:1px solid #e6e6e6;
+        text-align: center;
+        color:#979797;
+
+        .media-file {
+            width: 132px;
+            height: 132px;
+            left:0;
+            top:0;
+        }
+        s {
+            font:{
+                size: 38px;
+            }
+            line-height: 20px;
+            text-decoration: none;
+        }
+        p{
+            margin-top:20px;
+        }
+    }
+
+}
+.item-video-box {
+    .media-box {
+        width:180px;
+    }
+    .media-box-upload {
+        width:182px;
+    }
+}

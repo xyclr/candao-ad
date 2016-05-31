@@ -1,0 +1,132 @@
+#set($pageTitle="素材管理")
+#set($title="素材管理")
+
+#extends("/page/layout/default.vm")
+
+#block("content")
+
+
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="m-bread"><a href="">素材管理</a>&gt;新建素材</div>
+        </div>
+    </div>
+    <form action="" method="post" class="pl5 J-ad-form" novalidate="novalidate" style="border-top:1px solid #ddd;padding-top:20px;">
+        <div class="form-group">
+            <div class="form-item">
+                <label class="form-item-label control-label"><span class="required-span">*</span>素材名称：</label>
+                <div class="form-item-info">
+                    <input type="text" maxlength="25" name="name" value="" placeholder="请输入素材名称" class="form-control required">
+                </div>
+            </div>
+        </div>
+
+        ##素材类型
+        <div class="form-group">
+            <div class="form-item">
+                <label class="form-item-label control-label"><span class="required-span">*</span>素材内容：</label>
+                <div class="form-item-info">
+                    <div class="radio f-ib mr20">
+                        <label>
+                            <input type="radio" checked name="status" value="1"> 展示素材
+                        </label>
+                    </div>
+                    <div class="radio f-ib ml20">
+                        <label>
+                            <input type="radio" name="status" value="2"> 展示自定义链接
+                        </label>
+                    </div>
+
+                    <div class="f-cb item-go-url-box" style="display: none">
+                        <input type="text" maxlength="25" name="goUrl" value="" placeholder="http://广告页面会显示此链接内容" class="form-control required">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        ##展示素材
+        <div class="form-group-media">
+
+            <div class="form-group">
+                <div class="form-item">
+                    <label class="form-item-label control-label"><span class="required-span">*</span>选择素材：</label>
+                    <div class="form-item-info" style="width: auto">
+                        <div class="radio f-ib mr20">
+                            <label>
+                                <input type="radio" checked name="status2" value="1"> 图片
+                            </label>
+                            <i class="ico-qs"></i>
+                        </div>
+
+                        <div class="radio f-ib ml20">
+                            <label>
+                                <input type="radio" name="status2" value="2"> 视频
+                            </label>
+                            <i class="ico-qs"></i>
+                        </div>
+
+                        <div class="f-cb item-img-box">
+                            <div class="media-box">
+                                <img src="http://musicdata.baidu.com/data2/pic/115992112/115992112.jpg"  alt="">
+                                <div class="media-name f-toe">
+                                    xxxasdfadfadfadfasdfadfasfdadsf
+                                </div>
+                                <div class="media-op">
+                                    <a href="#">查看</a>
+                                    <a href="#" class="media-op-md">重新上传</a>
+                                    <a href="#">删除</a>
+                                    <input type="file" class="media-file" />
+                                </div>
+                            </div>
+
+                            <div class="media-box media-box-upload">
+                                <s>+</s>
+                                <p>点击上传横版图片</p>
+                                <input type="file" class="media-file" />
+                            </div>
+
+                        </div>
+
+                        <div class="f-cb item-video-box" style="display: none">
+                            <div class="media-box  media-box-upload">
+                                <s>+</s>
+                                <p>点击上传视频</p>
+                                <input type="file" class="media-file" />
+                            </div>
+                            <div class="media-box  media-box-upload">
+                                <s>+</s>
+                                <p>点击上传视频</p>
+                                <input type="file" class="media-file" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-item">
+                    <label class="form-item-label control-label"><span class="required-span">*</span>页面地址：</label>
+                    <div class="form-item-info">
+                        <input type="text" maxlength="25" name="name" value="" placeholder="http://顾客点击素材后会跳转到此处链接" class="form-control required">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="btn-operate form-group" id="add-btn" style="display: block;">
+            <button class="btn btn-default btn-cancel" type="button">取消</button>
+            <button class="btn btn-success ml20" type="submit"> 确认</button>
+        </div>
+
+    </form>
+</div>
+#end
+
+#require("./matter.scss")
+#script()
+require(['./matter']);
+#end
+#end

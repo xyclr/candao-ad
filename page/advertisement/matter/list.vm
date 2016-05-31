@@ -1,13 +1,36 @@
 #set($pageTitle="素材管理")
 #set($title="素材管理")
 
+##searchbox属性设置
+#set($searchBoxId = 'J-search-matter')
+#set($searchBoxPlaceholder = '素材ID/素材名称')
+
+#set($searchBoxHasKey = false)
+
+
 #extends("/page/layout/default.vm")
 
-    #block("content")
-        素材管理
-    #end
+#block("content")
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="m-bread"><a href="">素材管理</a></div>
+        </div>
+        <div class="col-md-12">
+            <a href="./matter/detail" class="btn btn-primary J-btn-add-adMatter">新建素材</a>
+            #widget("/widget/searchbox/searchbox.vm")
+        </div>
+    </div>
 
-    #script()
-        require(['./matter']);
-    #end
+    <div class="row mt10">
+        <div class="col-md-12 J-ad-matter-list">
+
+        </div>
+    </div>
+</div>
+#end
+
+#script()
+require(['./matter']);
+#end
 #end

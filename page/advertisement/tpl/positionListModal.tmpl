@@ -1,11 +1,11 @@
 <table class="table table-list" >
     <thead>
-        <tr><th>广告位ID</th> <th>广告位名称</th> <th>操作</th> </tr>
+        <tr> <th>选择</th> <th>广告位ID</th> <th>广告位名称</th>  </tr>
     </thead>
     <tbody>
         <% if (list.length>0) { %>
             <% _.forEach(list, function(item) { %>
-                <tr><td><%- item.id %></td><td class="ad-pos-name"><%- item.name %></td><td class="td-last"><div class="operate">	<a  class="J-btn-adPos-modify">修改</a>	<a href="javascript:void(0)" class="J-btn-adPos-del">删除</a></div></td></tr>
+                <tr><td><input type="radio" name="adPosItem"></td><td><%- item.id %></td><td class="ad-pos-name"><%- item.name %></td></tr>
             <% }); %>
         <% } else{ %>
            <tr><td colspan="3" style="padding:70px 0;">无广告位,点击新建广告</td></tr>
