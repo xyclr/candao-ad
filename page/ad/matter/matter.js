@@ -14,13 +14,14 @@ var $itemImgBox = $('.item-img-box');
 var $itemVideoBox = $('.item-video-box');
 var $itemUrlBox = $('.item-go-url-box');
 var $formGroupMeida = $('.form-group-media');
+var WebUploader = require('webuploader');
 
 var tplPositionList = __inline('../tpl/matterList.tmpl');
 
 var AdPosObj = {
-    init : function(){
+    init : function (){
         var that = this;
-        if($adMatterList.length > 0) {
+        if ($adMatterList.length > 0) {
             that.initAdMatterList();
         }
 
@@ -40,6 +41,30 @@ var AdPosObj = {
             }
         });
 
+
+        // 初始化Web Uploader
+        var uploader = WebUploader.create({
+
+            // 选完文件后，是否自动上传。
+            auto: true,
+
+            // swf文件路径
+            swf: '/js/Uploader.swf',
+
+            // 文件接收服务端。
+            server: 'http://webuploader.duapp.com/server/fileupload.php',
+
+            // 选择文件的按钮。可选。
+            // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+            pick: '#filePicker',
+
+            // 只允许选择图片文件。
+            accept: {
+                title: 'Images',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/*'
+            }
+        });
     },
 
     bindEvent: function() {
@@ -51,21 +76,40 @@ var AdPosObj = {
 
 
         //素材预览
-        $('body').on('click','.J-btn-matter-view',function(){
-            matterViews({
-                content: [
-                    { name: 'jerry',horizontalImg:'http://pic30.nipic.com/20130605/12728654_083846920000_2.jpg' },
-                    { name: 'john',horizontalImg:'http://pic32.nipic.com/20130829/12906030_124355855000_2.png'}
-                ],
-                type:'2' //1图片;2视频; 3链接(不处理)
-            });
+        $('body').on('click', '.J-btn-matter-view', function () {
+            var me = $(this),
+                $target = me.parents('tr'),
+                opt = {};
+
+            opt.type = parseInt($target.attr('data-type'), 10);
+            opt.webUrl = $target.attr('data-webUrl');
+
+            if(opt.type === 1) {//图片
+                opt.content = [
+                    {
+                        img: $target.attr('data-horizontalImg')
+                    },
+                    {
+                        img: $target.attr('data-verticalImg')
+                    }
+                ];
+            } else if(opt.type === 2) {//视频
+                opt.img = $target.attr('data-horizontalImg');
+                opt.videoUrl = $target.attr('data-videoUrl');
+            } else {//3:自定义链接
+                window.open($target.attr('data-webUrl'));
+                return ;
+            }
+
+            //调用预览插件
+            matterViews(opt);
         });
 
         //展示 自定义素材切换
         $('input[type=radio][name=status]').change(function(){
             var me = $(this);
 
-            if(me.val() === '1') {//展示素材
+            if (me.val() === '1') {//展示素材
                 $formGroupMeida.show();
                 $itemUrlBox.hide();
             } else {//自定义链接

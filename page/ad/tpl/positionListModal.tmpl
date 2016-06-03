@@ -5,7 +5,7 @@
     <tbody>
         <% if (list.length>0) { %>
             <% _.forEach(list, function(item) { %>
-                <tr><td><input type="radio" name="adPosItem"></td><td><%- item.id %></td><td class="ad-pos-name"><%- item.name %></td></tr>
+                <tr data-id="<%- item.id %>"><td><input type="radio" name="adPosItem"></td><td><%- item.id %></td><td class="ad-pos-name"><%- item.name %></td></tr>
             <% }); %>
         <% } else{ %>
            <tr><td colspan="3" style="padding:70px 0;">无广告位,点击新建广告</td></tr>

@@ -4,20 +4,20 @@
 ##
 ### set($searchBoxHasKey = true)  //如果有搜索分类,则同时需要设置$searchBoxMainKey 和 $searchBoxKeyItems
 ### set($searchBoxMainKey = { 'name':'广告ID' })
-### set($searchBoxKeyItems = [{ 'name':'广告名称' }, { 'name':'广告位名称' }, { 'name':'素材名称' }])
+### set($searchBoxKeyItems = [{ 'name':'广告名称', 'val': 1 }, { 'name':'广告位名称', 'val': 2 }, { 'name':'素材名称',, 'val': 3 }])
 
 #if ($searchBoxId)
     <div class="search-box f-fr J-search-box $searchBoxId">
         #if($searchBoxHasKey)
             <div class="search-cat">
-                <div class="search-cat-mt">
+                <div class="search-cat-mt search-cat-item" data-val="0">
                     $searchBoxMainKey.name
                 </div>
                 <span class="search-arrow glyphicon glyphicon-triangle-bottom"></span>
                 <div class="search-cat-cnt">
                     <ul>
                         #foreach( $item in $searchBoxKeyItems )
-                            <li>
+                            <li class="search-cat-item" data-val="$item.val">
                                 $item.name
                             </li>
                         #end
@@ -25,7 +25,7 @@
                 </div>
             </div>
         #end
-        <input type="text" class="search-ipt" onkeyup='this.value=this.value.replace(/[^1-9]\D*$/,"")'  placeholder="$searchBoxPlaceholder"  />
+        <input type="text" class="search-ipt"   placeholder="$searchBoxPlaceholder"  />
         <a href="javascript:void(0)" class="search-submit J-search-submit">
             查询
         </a>

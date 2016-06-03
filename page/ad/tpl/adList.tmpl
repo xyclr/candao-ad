@@ -1,0 +1,53 @@
+<table class="table table-list">
+    <thead>
+    <tr>
+        <th width="50">广告ID</th>
+        <th width="120">广告名称</th>
+        <th width="220">广告位名称</th>
+        <th width="220">素材名称</th>
+        <th >广告顺序</th>
+        <th width="220">租户</th>
+        <th>启用状态</th>
+        <th width="100">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+        <% if(list.length > 1){ %>
+            <% _.forEach(list, function(item) { %>
+                <tr id="<%- item.id %>">
+                    <td><%- item.id %></td>
+                    <td class="item-ad-name"><%- item.name %></td>
+                    <td>
+                        <span class="td-toe">
+                            <% var retPosition='' %>
+                            <% _.forEach(item.position, function(i) { retPosition += i.name + ',' });  %>
+                            <% var retPosition= _.truncate(retPosition.substring(0,retPosition.length-1), { 'length': 37, 'omission': ' …' }); %>
+                            <%- retPosition %>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="td-toe">
+                            <% var retmaterial='' %>
+                            <% _.forEach(item.material, function(i) { retmaterial += i.name  + ',' });  %>
+                            <% var retmaterial= _.truncate(retmaterial.substring(0,retmaterial.length-1), { 'length': 37, 'omission': ' …' }); %>
+                            <%- retmaterial %>
+                        </span>
+                    </td>
+                    <td><%- item.sequence %></td>
+                    <td>
+                        <span class="td-toe">
+                            <% var retTenant='' %>
+                            <% _.forEach(item.tenant, function(i) { retTenant += i.name  + ',' }); %>
+                            <% var retTenant= _.truncate(retTenant.substring(0,retTenant.length-1), { 'length': 37, 'omission': ' …' }); %>
+                            <%- retTenant %>
+                        </span>
+                    </td>
+                    <td><div class="switch J-btn-status"><input type="checkbox" <% if (item.status) { %> checked <% } %> value=""><label><i data-on="启用" data-off="停用"></i></label></div></td>
+                    <td class="td-last"><div class="operate">	<a href="./advertisement/detail?id=<%- item.id %>"  class="J-btn-ad-modify">修改</a>	<a href="javascript:void(0)" class="J-btn-ad-del">删除</a></div></td>
+                </tr>
+            <% }); %>
+        <% } else { %>
+            <tr><td colspan="8" style="padding:70px 0;">无广告,点击新建广告</td></tr>
+        <% } %>
+    </tbody>
+</table>

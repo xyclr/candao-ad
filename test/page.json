@@ -19,19 +19,19 @@
         },
         {
             "label": "广告管理",
-            "href": "/advertisement/ad",
+            "href": "/ad/advertisement",
             "children": [
                 {
                     "label": "广告管理",
-                    "href": "/advertisement/ad"
+                    "href": "/ad/advertisement"
                 },
                 {
                     "label": "素材管理",
-                    "href": "/advertisement/matter"
+                    "href": "/ad/matter"
                 },
                 {
                     "label": "广告位管理",
-                    "href": "/advertisement/adPosition"
+                    "href": "/ad/adPosition"
                 }
             ]
         }

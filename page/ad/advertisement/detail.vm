@@ -5,7 +5,7 @@
 
     #block("content")
 
-
+        <input type="hidden" id="advertisementId" value="" />
         <div class="content">
             <div class="row">
                 <div class="col-md-12">
@@ -25,15 +25,22 @@
                     <div class="form-item">
                         <label class="form-item-label control-label"><span class="required-span">*</span>广告位置：</label>
                         <div class="form-item-info">
-                            <input type="text" maxlength="25" value="" name="positionName" placeholder="选择广告位" class="form-control required J-btn-adP-select">
+                            <input type="text" maxlength="25" value="" name="position"  placeholder="选择广告位" class="form-control required J-btn-adP-select">
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="form-item">
                         <label class="form-item-label control-label"><span class="required-span">*</span>选择素材：</label>
-                        <div class="form-item-info">
-                            <input type="text" maxlength="25" value="" name="materialName" placeholder="请选择素材" class="form-control required J-btn-matter-select">
+                        <div class="form-item-info media-content" style="width: 900px;">
+                            <div class="media-content">
+                                <div class="media-box media-box-upload J-btn-matter-select">
+                                    <s>+</s>
+                                    <p>点击选择素材</p>
+                                </div>
+                            </div>
+                            <div class="f-cb"></div>
+                            <input type="text" style="position: absolute;left:-10000px;top:-10000px;" maxlength="25" value="" name="material" placeholder="请选择素材" class="form-control required">
                         </div>
                     </div>
                 </div>
@@ -49,7 +56,7 @@
                     <div class="form-item">
                         <label class="form-item-label control-label"><span class="required-span">*</span>投放范围：</label>
                         <div class="form-item-info">
-                            <input type="text" maxlength="25" value="" name="tenants" placeholder="选择租户" class="form-control required J-btn-rent-select">
+                            <input type="text" maxlength="25" value="" name="tenant" placeholder="选择租户" class="form-control required J-btn-rent-select">
                         </div>
                     </div>
                 </div>
@@ -83,7 +90,7 @@
         </div>
     #end
 
-
+    #require("../matter/matter.scss")
     #script()
         require(['./ad']);
     #end

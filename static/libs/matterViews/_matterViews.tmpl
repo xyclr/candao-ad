@@ -1,13 +1,12 @@
 <div class="matter-view-box">
-        <% type === '1' %>
-        <% if(type === '1') { %>
+        <% if(type === 1) { %>
 
             <div id="matterViewsImg" class="carousel">
                 <!-- Carousel items -->
                 <div class="carousel-inner">
                         <% _.forEach(content, function(item,i) { %>
                               <div class="item <% if(i == 0){ %> active <% } %>">
-                                   <img src="<%- item.horizontalImg %>" alt="Third slide">
+                                   <img src="<%- item.img %>" alt="Third slide">
                               </div>
                           <% }); %>
                 </div>
@@ -16,13 +15,13 @@
                 <a class="carousel-control right" href="#matterViewsImg" data-slide="next"></a>
             </div>
 
-        <% } else { %>
+        <% } else if(type ===2) { %>
             <div id="matterViewsVideo">
-                <video poster="http://www.jq22.com/demo/src/mi4.png" controls="controls"  id="video">
-                    <source src="http://www.jplayer.org/video/webm/Big_Buck_Bunny_Trailer.webm"/>
+                <video poster="<%- img %>" controls="controls" width="320" height="240"  id="video">
+                    <source src="<%- videoUrl %>""/>
                     Your browser does not support the video tag.
                 </video>
             </div>
-        <% }  %>
+        <% } else { }%>
 </div>
 <div class="matter-view-mask"></div>

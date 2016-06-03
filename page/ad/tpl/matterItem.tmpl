@@ -1,0 +1,14 @@
+<div class="media-box" data-id="<%- id %>" data-type="<%- type %>" data-horizontalImg="<%- horizontalImg %>" data-verticalImg="<%- verticalImg %>" data-videoUrl="<%- videoUrl %>"  data-webUrl="<%- webUrl %>">
+    <% if(type === 3) { %>
+        <img src="/static/i/default.jpg" onerror="this.src='/static/i/default.jpg'" alt="">
+     <% } else { %>
+        <img src="<%- thumbnail %>" onerror="this.src='/static/i/default.jpg'" alt="">
+        <div class="media-name f-toe">
+            <%- name %>
+        </div>
+     <% } %>
+    <div class="media-op">
+        <a href="#" class="f-fl J-btn-matter-view">查看</a>
+        <a href="#" class="J-btn-matter-select f-fr">重新选择</a>
+    </div>
+</div>

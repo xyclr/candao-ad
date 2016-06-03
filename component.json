@@ -10,6 +10,8 @@
     "font-awesome",
     "jquery-ui",
     "jquery-validation",
-    "lodash@^4.6.1"
+    "lodash@^4.6.1",
+    "webuploader",
+    "github:fis-components/webuploader@0.1.6"
   ]
 }

@@ -5,7 +5,7 @@
     <tbody>
         <% if (list.length>0) { %>
             <% _.forEach(list, function(item) { %>
-                <tr><td><%- item.id %></td><td class="ad-pos-name"><%- item.name %></td><td class="td-last"><div class="operate">	<a  class="J-btn-adPos-modify">修改</a>	<a href="javascript:void(0)" class="J-btn-adPos-del">删除</a></div></td></tr>
+                <tr data-id="<%- item.id %>"><td><%- item.id %></td><td class="ad-pos-name"><%- item.name %></td><td class="td-last"><div class="operate">	<a  class="J-btn-adPos-modify" data-op="modify">修改</a>	<a href="javascript:void(0)" class="J-btn-adPos-del">删除</a></div></td></tr>
             <% }); %>
         <% } else{ %>
            <tr><td colspan="3" style="padding:70px 0;">无广告位,点击新建广告</td></tr>

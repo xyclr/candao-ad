@@ -500,11 +500,20 @@ html, body {
         height: 30px;
         overflow: hidden;
         text-align: center;
+        cursor: pointer;
         img {
             height: 30px;
-            margin-left: -5px;
-            vertical-align: middle;
+            width: 30px;
         }
+    }
+
+    .td-toe {
+        @include  inline-block();
+        position:relative;
+        line-height:25px;
+        height:50px;
+        overflow:hidden;
+        text-align: left;
     }
 }
 .table-list tbody tr:hover {
@@ -766,9 +775,9 @@ html, body {
         color:red;
     }
     span.help-block-errow {
-        position: absolute;
-        left:0;
-        top:35px;
+        //position: absolute;
+        //left:0;
+        //top:35px;
         color:red;
     }
     .radio, .checkbox {

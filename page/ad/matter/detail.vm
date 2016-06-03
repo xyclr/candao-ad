@@ -68,7 +68,7 @@
 
                         <div class="f-cb item-img-box">
                             <div class="media-box">
-                                <img src="http://musicdata.baidu.com/data2/pic/115992112/115992112.jpg"  alt="">
+                                <img src="http://musicdata.baidu.com/data2/pic/115992112/115992112.jpg" onerror="this.src='/static/i/default.jpg'"  alt="">
                                 <div class="media-name f-toe">
                                     xxxasdfadfadfadfasdfadfasfdadsf
                                 </div>
@@ -85,6 +85,14 @@
                                 <p>点击上传横版图片</p>
                                 <input type="file" class="media-file" />
                             </div>
+
+                            <!--dom结构部分-->
+                            <div  class="media-box media-box-upload" id="uploader-demo">
+                                <!--用来存放item-->
+                                <div id="fileList" class="uploader-list"></div>
+                                <div id="filePicker">选择图片</div>
+                            </div>
+
 
                         </div>
 
